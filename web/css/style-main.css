@@ -1,0 +1,82 @@
+body {
+    background-color: #F9F9F2;
+}
+
+.navbar-header{
+    height: 98px;
+}
+
+.body-shape{
+    width: 850px;
+    margin-left: 28%;
+}
+
+.bottom-navbar{
+    background-color: #123A82;
+    margin-bottom: -40px;
+}
+
+.bottom-layout{
+    text-align: center;
+    font-size: 16px;
+    color: white;
+    margin-top: 13px;
+}
+
+.bottom-partition{
+    width: 1190px;
+    height: 20px;
+}
+
+.left-menu{
+    width: 230px;
+    float: left;
+    margin-left: 10%;
+}
+
+.navbar{
+    margin-bottom: 20px;
+    border: 0px;
+    border-radius: 0px;
+}
+
+.main-logo{
+    margin-top: -7px;
+    margin-bottom: -35px;
+}
+
+.partition{
+    width: 1090px;
+    height: 10px;
+}
+
+.request{
+    margin-left: auto;
+    margin-right: auto;
+    width: 800px;
+}
+
+.body-partition{
+    width: 800px;
+    height: 20px;    
+}
+
+.lesson-partition{
+    width: 850px;
+    height: 10px;
+}
+
+.btn-lg {
+  padding: 10px 16px;
+  font-size: 50px;
+  line-height: 1.33;
+  border-radius: 6px;
+}
+
+h1, h2, h3, h4, h5 {
+    display: inline;
+}
+
+.clear{
+    clear: both;
+}
