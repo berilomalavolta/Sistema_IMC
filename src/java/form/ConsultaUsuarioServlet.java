@@ -14,6 +14,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import model.Usuario;
+import services.Db_conection;
 
 public class ConsultaUsuarioServlet extends HttpServlet{
     private PreparedStatement pstmt;
@@ -61,9 +62,7 @@ public class ConsultaUsuarioServlet extends HttpServlet{
     
     private void inicializaJdbc() {
         try {
-            Class.forName("com.mysql.jdbc.Driver");
-            Connection c = DriverManager.getConnection("jdbc:mysql://localhost/db_imc", "root", "");
-            pstmt = c.prepareStatement("select id, nome, sobrenome, email, senha, userdesc from usuario where email = ?");            
+            pstmt = Db_conection.ex_statement("db_imc", "select id, nome, sobrenome, email, senha, userdesc from usuario where email = ?");        
         } catch (Exception ex) {
             System.out.println(ex);
         }
