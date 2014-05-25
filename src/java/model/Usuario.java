@@ -1,4 +1,3 @@
-
 package model;
 
 /**
@@ -6,6 +5,7 @@ package model;
  * @author Eduardo
  */
 public class Usuario {
+
     int id;
     String nome;
     String sobrenome;
@@ -15,18 +15,24 @@ public class Usuario {
     String desc;
 
     public Usuario() {
-        id = 0; nome = ""; sobrenome = ""; senha = ""; confirmaSenha = ""; email = ""; desc = "";
+        id = 0;
+        nome = "";
+        sobrenome = "";
+        senha = "";
+        confirmaSenha = "";
+        email = "";
+        desc = "";
     }
 
     public int getId() {
         return id;
-    }    
+    }
 
     public String getNome() {
         return nome;
     }
-    
-    public String getSobrenome(){
+
+    public String getSobrenome() {
         return sobrenome;
     }
 
@@ -44,8 +50,8 @@ public class Usuario {
 
     public String getDesc() {
         return desc;
-    }   
-    
+    }
+
     public void setId(int id) {
         this.id = id;
     }
@@ -53,8 +59,8 @@ public class Usuario {
     public void setNome(String nome) {
         this.nome = nome;
     }
-    
-    public void setSobrenome(String sobrenome){
+
+    public void setSobrenome(String sobrenome) {
         this.sobrenome = sobrenome;
     }
 
@@ -72,6 +78,6 @@ public class Usuario {
 
     public void setDesc(String desc) {
         this.desc = desc;
-    }    
-    
+    }
+
 }
