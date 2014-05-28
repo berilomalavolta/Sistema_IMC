@@ -18,7 +18,8 @@ import services.Db_conection;
 
 public class ConsultaUsuarioServlet extends HttpServlet{
     private PreparedStatement pstmt;
-    String pemail = "", psenha = "", pnome = "", psobrenome = ""; int pid; String pdesc = "";
+    String pemail = "", psenha = "", pnome = "", psobrenome = ""; int pid; 
+    String pdesc = "", ptipoUsuario = "";
     
     public void init() throws ServletException {
         inicializaJdbc();
@@ -51,8 +52,28 @@ public class ConsultaUsuarioServlet extends HttpServlet{
             sessao.setAttribute("user",user);
             
             request.setAttribute("user", user);
-                        
-            response.sendRedirect("admin/main-system.jsp");
+            
+            //identifica o tipo do usuário
+            if(ptipoUsuario.equalsIgnoreCase("comum")){
+                response.sendRedirect("admin/main-system-user.jsp");
+            }else{
+                if(ptipoUsuario.equalsIgnoreCase("coordenador")){
+                    response.sendRedirect("admin/main-system.jsp");
+                }else{
+                    if(ptipoUsuario.equalsIgnoreCase("estagiario")){
+                        response.sendRedirect("admin/main-system.jsp");
+                    }else{
+                        if(ptipoUsuario.equalsIgnoreCase("tec_servico")){
+                           response.sendRedirect("admin/main-system.jsp"); 
+                        }else{
+                            if(ptipoUsuario.equalsIgnoreCase("tec_adm")){
+                                response.sendRedirect("admin/main-system.jsp");
+                            }
+                        }
+                    }
+                }
+            }
+            
         } catch (Exception ex) {
             response.sendRedirect("login-error.jsp");
             //out.println("Error: " + ex.getMessage());
@@ -62,25 +83,24 @@ public class ConsultaUsuarioServlet extends HttpServlet{
     
     private void inicializaJdbc() {
         try {
-            pstmt = Db_conection.ex_statement("db_imc", "select id, nome, sobrenome, email, senha, userdesc from usuario where email = ?");        
+            pstmt = Db_conection.ex_statement("db_imc", "select id, nome, sobrenome, userdesc, email, senha, tipo_usuario  from usuario where email = ?");        
         } catch (Exception ex) {
             System.out.println(ex);
         }
     }
     
     private boolean consultaUsuario(String email, String senha) throws SQLException {
-        pstmt.setString(1, email);
-        
-        
+        pstmt.setString(1, email);       
         
         ResultSet rs = pstmt.executeQuery();
         while(rs.next()){            
             pid = Integer.parseInt(rs.getString("id"));
-            pemail = rs.getString("email");
-            psenha = rs.getString("senha");
             pnome = rs.getString("nome");
             psobrenome = rs.getString("sobrenome");
             pdesc = rs.getString("userdesc");
+            pemail = rs.getString("email");
+            psenha = rs.getString("senha");
+            ptipoUsuario = rs.getString("tipo_usuario");
         }
         
         
