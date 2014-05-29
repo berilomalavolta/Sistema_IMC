@@ -43,6 +43,7 @@ public class ConsultaUsuarioServlet extends HttpServlet{
             
             
             Usuario user = new Usuario();
+            user.setEmail(pemail);
             user.setNome(pnome);
             user.setSobrenome(psobrenome);
             user.setDesc(pdesc);

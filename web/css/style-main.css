@@ -61,9 +61,8 @@ body {
     height: 20px;    
 }
 
-.lesson-partition{
-    width: 850px;
-    height: 10px;
+.center{
+    text-align:center;
 }
 
 .btn-lg {
