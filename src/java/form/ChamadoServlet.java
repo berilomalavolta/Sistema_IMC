@@ -43,7 +43,7 @@ public class ChamadoServlet extends HttpServlet {
             cadastrarChamado(tipoChamado, descChamado, dataB, emailU);
 
 
-            response.sendRedirect("main-system-user.jsp");
+            response.sendRedirect("main-system.jsp");
         } catch (Exception ex) {
             //out.println("Error: " + ex.getMessage());
             return;

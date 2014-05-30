@@ -48,32 +48,15 @@ public class ConsultaUsuarioServlet extends HttpServlet{
             user.setSobrenome(psobrenome);
             user.setDesc(pdesc);
             user.setId(pid);
+            user.setTipoUsuario(ptipoUsuario);
             
             HttpSession sessao = request.getSession(true);  
             sessao.setAttribute("user",user);
             
             request.setAttribute("user", user);
             
-            //identifica o tipo do usuário
-            if(ptipoUsuario.equalsIgnoreCase("comum")){
-                response.sendRedirect("admin/main-system-user.jsp");
-            }else{
-                if(ptipoUsuario.equalsIgnoreCase("coordenador")){
-                    response.sendRedirect("admin/main-system.jsp");
-                }else{
-                    if(ptipoUsuario.equalsIgnoreCase("estagiario")){
-                        response.sendRedirect("admin/main-system.jsp");
-                    }else{
-                        if(ptipoUsuario.equalsIgnoreCase("tec_servico")){
-                           response.sendRedirect("admin/main-system.jsp"); 
-                        }else{
-                            if(ptipoUsuario.equalsIgnoreCase("tec_adm")){
-                                response.sendRedirect("admin/main-system.jsp");
-                            }
-                        }
-                    }
-                }
-            }
+            //redireciona para a página principal
+            response.sendRedirect("admin/main-system.jsp");
             
         } catch (Exception ex) {
             response.sendRedirect("login-error.jsp");

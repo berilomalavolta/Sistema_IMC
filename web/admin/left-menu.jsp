@@ -1,3 +1,4 @@
+<jsp:useBean id="user" class="model.Usuario" scope="session"/>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -17,6 +18,48 @@
     <body>
         <div class="left-menu">
                 <nav class="navbar navbar-default" role="navigation">
+                    
+                    <div class="left-menu-inside">
+                        <!-- Permissão de Usuários -->
+                        <br/>
+                        <h3><b>+ Chamados</b></h3>
+                        <br/>
+                        <div class="left-sub-menu-inside">                            
+                                <h4>- Resolvidos</h4>
+                                <br/>
+                                <h4>- Não Resolvidos</h4>
+                                <br/>
+                                <h4>- Todos</h4>                            
+                        </div>
+                        <br/>
+                        
+                        <% if(user.getTipoUsuario().equalsIgnoreCase("coordenador")){ %>
+                        <h3><b>+ Cadastrar</b></h3>
+                        <br/>
+                        <div class="left-sub-menu-inside">                            
+                                <h4>- Usuário</h4>                           
+                        </div>
+                        <br/>
+                        <% } %>
+                        
+                        <% if(user.getTipoUsuario().equalsIgnoreCase("coordenador")){ %>
+                        <h3><b>+ Relatórios</b></h3>
+                        <br/>
+                        <div class="left-sub-menu-inside">
+                            
+                                <h5>- Tempo de Resolução</h5>
+                                <br/>
+                                <h5>- Chamados Não Resolvidos</h5>
+                                <br/>
+                                <h5>- Equipamentos Defeituosos</h5>
+                                <br/>
+                                <h5>- Eficiência do Funcionário</h5>
+                                <br/>
+                                <h5>- Chamadas Realizadas por Usuário</h5>                            
+                        </div>
+                        <br/>
+                        <% } %>
+                    </div>
                     
                 </nav>
         </div>

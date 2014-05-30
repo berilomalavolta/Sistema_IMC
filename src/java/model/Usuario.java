@@ -13,6 +13,7 @@ public class Usuario {
     String confirmaSenha;
     String email;
     String desc;
+    String tipoUsuario;
 
     public Usuario() {
         id = 0;
@@ -52,6 +53,11 @@ public class Usuario {
         return desc;
     }
 
+    public String getTipoUsuario() {
+        return tipoUsuario;
+    }    
+    
+
     public void setId(int id) {
         this.id = id;
     }
@@ -78,6 +84,10 @@ public class Usuario {
 
     public void setDesc(String desc) {
         this.desc = desc;
+    }
+
+    public void setTipoUsuario(String tipoUsuario) {
+        this.tipoUsuario = tipoUsuario;
     }
 
 }

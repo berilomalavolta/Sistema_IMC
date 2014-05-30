@@ -1,5 +1,5 @@
 
-<jsp:useBean id="user" class="model.Usuario" scope="session"/>
+
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
